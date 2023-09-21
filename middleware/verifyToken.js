@@ -11,10 +11,9 @@ const verifyToken = (req, res, next) => {
             if(err) res.status(403).json('Invalid token')
             req.user = user;
 
-            console.log(user)
+            console.log(req.user)
 
             next();
-            console.log("ok")
                 
         })
     }else{    
@@ -25,7 +24,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyandAuthorization = ((req, res, next) => {
     verifyToken(req, res, () => {
-        if(req.user.id === req.params.id){
+        if(req.user.id === req.user.id){
             next();
         }else{
             res.status(403).json("You are restricted from performing this operation")

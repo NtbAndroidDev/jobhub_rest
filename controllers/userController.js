@@ -27,7 +27,7 @@ module.exports = {
     //delete function
     deleteUser: async(req, res) => {
         try {
-            await User.findByIdAndDelete(req.params.id)
+            await User.findByIdAndDelete(req.user.id)
             res.status(200).json("Account Successfully Deleted")
         } catch (error) {
             res.status(500).json(error)
@@ -38,7 +38,7 @@ module.exports = {
     //get user function
     getUser: async(req, res) => {
         try {
-            const user = await User.findById(req.params.id);
+            const user = await User.findById(req.user.id);
             const {password, __v, createdAt, ...userData} = user._doc;
             res.status(200).json(userData)
         } catch (error) {
