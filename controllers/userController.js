@@ -11,7 +11,7 @@ module.exports = {
 
         try {
             const updateUser = await User.findByIdAndUpdate(
-                req.params.id, {
+                req.user.id, {
                 $set: req.body
             }, { new: true }
             );
