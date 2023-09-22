@@ -13,6 +13,7 @@ const JobSchema = new mongoose.Schema(
         contract:{type: String, require: true},
         requirements:{type: Array, require: true},
         imageUrl:{type: String, require: true},
+        hiring: {type: Boolean, default: true},
         agentId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
