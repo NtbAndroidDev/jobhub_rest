@@ -9,10 +9,7 @@ const BookMarkSchema = new mongoose.Schema(
             ref: "Job"
         },
         userId: { type: String, require: true },
-        // title: { type: String, require: true },
-        // imageUrl: { type: String, require: true },
-        // location: { type: String, require: true },
-        // company: { type: String, require: true },
+        
 
     },
     {

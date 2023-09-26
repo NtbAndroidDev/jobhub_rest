@@ -8,9 +8,6 @@ module.exports = {
         const jobID = req.body.job;
 
 
-
-
-
         try {
             const job = await Job.findById(jobID);
 
@@ -21,9 +18,12 @@ module.exports = {
 
             const savedBookmark = await newBook.save();
 
+
             const {__v, updatedAt, ...newBookmarkInfo} = savedBookmark._doc;
 
             res.status(200).json(newBookmarkInfo);
+            savedBookmark.save();
+
         } catch (error) {
             res.status(500).json(error);
         }
